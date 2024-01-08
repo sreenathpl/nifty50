@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<form action="/portfolio" method = "POST">
+<h1 style="text-align:center;"> Nifty50 Portfolio</h1>
+<table style = "width:100%">
+  <tr>
+    <td style="width:30%">Choose a stock:</td>
+    <td>
+        <select name="stock" id="stock">
+        {% for i in active_stocks_list %}
+          <option value="{{i.symbol}}">{{i.name}}</option>
+        {% endfor %}
+        </select>
+        <b style="color:red;">* Active stocks of this month.</b>
+    </td>
+  </tr>
+  <tr>
+      <td>No. of days return required (Ndays)</td>
+      <td><input type = "text" name = "Ndays" /></p></td>
+  </tr>
+  <tr>
+      <td>Set start date for Equity Curves</td>
+      <td><input type="date" name="start_date"></td>
+  </tr>
+</table>
+<p><input type = "submit" value = "Submit" /></p>
+</form>
+<h3 style="text-align:center;"> Top 10 stocks for today.</h3>
+{% for table in top_stock %}
+    {{ table|safe }}
+{% endfor %}
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data</title>
+</head>
+<body>
+{% for key,value in form_data.items() %}
+    <h2> {{key}}</h2>
+    <p> {{value}}</p>
+{% endfor %}
+
+{% for i in stock_info %}
+    <h2>Current date</h2>
+    <p>{{i.Cur_date}}</p>
+
+    <h2>Stock price of {{form_data.stock}} Current date</h2>
+    <p>{{i.Cday_Price}}</p>
+
+    <h2>Ndays return</h2>
+    <p>
+        {% for table in Nday_Return %}
+            {{ table|safe }}
+        {% endfor %}
+    </p>
+    <h2>30days return</h2>
+    <p>
+        {% for table in days30_Return %}
+            {{ table|safe }}
+        {% endfor %}
+    </p>
+{% endfor %}
+</body>
+</html>

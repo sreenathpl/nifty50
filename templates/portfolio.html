@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio</title>
+</head>
+<body>
+<table style = "width:100%">
+    <tr>
+        {% for key,value in form_data.items() %}
+        <td style="width:25%"><P> {{key}}</P></td>
+        <td style="width:25%"><h2> {{value}}</h2></td>
+        {% endfor %}
+    </tr>
+    <tr>
+        {% for i in stock_info %}
+        <td>
+            <p>Current date</p>
+        </td>
+        <td>
+            <h2>{{i.Cur_date}}</h2>
+        </td>
+        <td><p>Stock price of current date</p></td>
+        <td>
+            <h2>{{i.Cday_Price}}</h2>
+        </td>
+        {% endfor %}
+    </tr>
+    <tr>
+        <td>
+            <p>Start date of Equity Curve</p>
+        </td>
+        <td>
+            <h2>{{form_data.start_date}}</h2>
+        </td>
+        <td><p>End date of Equity Curve</p></td>
+        <td>
+            {% for i in stock_info %}
+            <h2>{{i.Cur_date}}</h2>
+            {% endfor %}
+        </td>
+    </tr>
+    <tr>
+        <td colspan= 4>
+                <img src= "{{ url_for('static', filename='stock.png') }}" alt = "Chart cannot be displayed"  height="400px" width="600px">
+        </td>
+    </tr>
+    <tr>
+        <td colspan= 4 style="text-align:center;"><p> Performance Summary</p></td>
+    </tr>
+    <tr>
+        <td colspan= 4 style="text-align:center;">
+            {% for table in performance_Summary %}
+                {{ table|safe }}
+            {% endfor %}
+        </td>
+    </tr>
+    <tr>
+        <td colspan= 4 style="text-align:center;"><p>Ndays Return</p></td>
+    </tr>
+    <tr>
+        <td colspan= 4 style="text-align:center;">
+            {% for table in Nday_Return %}
+                {{ table|safe }}
+            {% endfor %}
+        </td>
+    </tr>
+    <tr>
+        <td colspan= 4 style="text-align:center;"><p> Last 30days Return</p></td>
+    </tr>
+    <tr>
+        <td colspan= 4 style="text-align:center;">
+             {% for table in days30_Return %}
+                {{ table|safe }}
+             {% endfor %}
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

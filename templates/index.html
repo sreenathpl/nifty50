@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<form action="/data" method = "POST">
+    <p>
+        <label for="stock">Choose a stock:</label>
+        <select name="stock" id="stock">
+        {% for i in active_stocks_list %}
+            <option value="{{i.symbol}}">{{i.name}}</option>
+<!--              <option value="ADANIPORTS">Adani Ports and Special Economic Zone Ltd.</option>-->
+<!--              <option value="APOLLOHOSP">Apollo Hospitals Enterprise Ltd.</option>-->
+<!--              <option value="ASIANPAINT">Asian Paints Ltd.</option>-->
+        {% endfor %}
+        </select>
+    </p>
+    <p>No. of days return <input type = "text" name = "Ndays" /></p>
+    <p><input type = "submit" value = "Submit" /></p>
+</form>
+</body>
+</html>

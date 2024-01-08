@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+Workon.egg-info/PKG-INFO
+Workon.egg-info/SOURCES.txt
+Workon.egg-info/dependency_links.txt
+Workon.egg-info/requires.txt
+Workon.egg-info/top_level.txt
+scripts/workon.sh
+workon/__init__.py
+workon/database.py
+workon/helpers.py
+workon/script.py
